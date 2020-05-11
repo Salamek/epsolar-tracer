@@ -21,10 +21,10 @@ class EPsolarTracerClient:
     """ EPsolar Tracer client
     """
 
-    def __init__(self, unit: int=1, serialclient: ModbusClient=None, **kwargs):
+    def __init__(self, serialclient: ModbusClient=None, **kwargs):
         """ Initialize a serial client instance
         """
-        self.unit = unit
+        self.unit = kwargs.get('unit', 1)
         if serialclient is None:
             port = kwargs.get('port', '/dev/ttyXRUSB0')
             baudrate = kwargs.get('baudrate', 115200)
